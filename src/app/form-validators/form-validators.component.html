@@ -1,0 +1,11 @@
+<form [formGroup]="validationForm" (ngSubmit)="onSubmit()">
+  <label *ngFor="let title of regularExpresions; let i=index">
+    {{title}}:
+    <input type="text" formControlName="reg{{i+1}}">
+    <br><br>
+  </label>
+   <p>
+    Form Status: {{ validationForm.status }} 
+  </p>
+  <button type="submit" [disabled]="!validationForm.valid">Submit</button>
+</form>

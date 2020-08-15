@@ -1,0 +1,55 @@
+<h2>The ts file is different from formgroup</h2>
+<p>FormBuilder service has three methods: control(), group(), and array(). </p>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName">
+  </label>
+  <br><br>
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label>
+  <br>
+  <div formGroupName="address">
+    <h3>Address</h3>
+    <label>
+      Street:
+      <input type="text" formControlName="street">
+    </label>
+    <br><br>
+    <label>
+      City:
+      <input type="text" formControlName="city">
+    </label>
+    <br><br>
+    <label>
+      State:
+      <input type="text" formControlName="state">
+    </label>
+    <br><br>
+    <label>
+      Zip Code:
+      <input type="text" formControlName="zip">
+    </label>
+  </div>
+  <br>
+  <p>
+  <button (click)="updateProfile()">Update Profile</button>
+  </p>
+  <div formArrayName="aliases">
+    <h3>Aliases</h3> 
+    <button (click)="addAlias()">Add Alias</button>
+    <br><br>
+    <div *ngFor="let alias of aliases.controls; let i=index">
+      <!-- The repeated alias template -->
+      <label>
+        Alias:
+        <input type="text" [formControlName]="i">
+      </label>
+      <br><br>
+    </div>
+  </div>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+<p>{{profileForm.value | json}}</p>

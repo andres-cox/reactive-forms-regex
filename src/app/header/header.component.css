@@ -1,0 +1,21 @@
+nav {
+  margin-bottom: 2rem;
+  padding-bottom: .5rem;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid blue;
+}
+
+li {
+  list-style-type: none;
+  padding: 2px 5px;
+}
+
+a{
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover{
+  font-weight: bold;
+}
